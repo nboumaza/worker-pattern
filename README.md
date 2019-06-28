@@ -48,7 +48,7 @@ a Vert.x instance.
 
 The purpose of the first iteration is to provide a simple 
 implementation approach for the worker pattern using strictly Vert.x Event Bus
-and as illustrated by the following diagram:
+as illustrated by the following diagram:
 
 ![alt text](doc/img/SolIteration1.png)
 
@@ -87,13 +87,15 @@ Ad Vertx Clustering:
 ### Building
 
 1. Clone this repo: 
+    
+    git clone https://github.com/nboumaza/worker-pattern
 
 2. Build the project use the provided gradle wrapper:
 
     ./gradlew clean build
 
 
-It should generates wpe-merge-fat.jar in the `build/libs` directory.
+It should generates workers.jar in the `build/libs` directory.
 
 ### Running 
 
