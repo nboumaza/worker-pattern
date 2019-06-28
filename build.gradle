@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+}
+
+group 'worker-pattern'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    compile "org.slf4j:slf4j-api:${slfVersion}"
+    compile "org.slf4j:slf4j-log4j12:${slfVersion}"
+
+    compile "io.vertx:vertx-core:${vertxVersion}"
+    compile "io.vertx:vertx-config:${vertxVersion}"
+    compile "io.vertx:vertx-web:${vertxVersion}"
+    compile "io.vertx:vertx-redis-client:${vertxVersion}"  //Job Queue Impl provider
+    compileOnly("io.vertx:vertx-codegen:${vertxVersion}")  //code generation for proxies
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'io.vertx:vertx-unit:3.7.1'
+}
+
+jar {
+    //by default fat jar
+    archiveName = 'workers.jar'
+    from {
+        configurations
+                .compile
+                .collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    manifest {
+        attributes 'Main-Class': 'io.vertx.core.Launcher'
+        attributes 'Main-Verticle': 'MasterEB'
+    }
+}

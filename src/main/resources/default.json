@@ -1,0 +1,8 @@
+{
+  "http.port": 7070,
+  "workers.pool.name": "beer-request-pool",
+  "workers.instances.count": 1,
+  "workers.pool.size": 5,
+  "redis.host": "127.0.0.1",
+  "redis.port": 6379
+}
