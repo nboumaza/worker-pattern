@@ -47,8 +47,8 @@ a Vert.x instance.
 ### Iteration 1
 
 The purpose of the first iteration is to provide a simple 
-approach for  how to implementation the worker pattern using strictly Vert.x Event Bus
-as illustrated by the following diagram:
+implementation approach for the worker pattern using strictly Vert.x Event Bus
+and as illustrated by the following diagram:
 
 ![alt text](doc/img/SolIteration1.png)
 
